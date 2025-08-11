@@ -91,3 +91,6 @@ npm start
 
 ## 📄 License
 ISC
+
+## Credits
+Developed by Mohammed Sadiq

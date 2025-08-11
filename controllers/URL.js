@@ -1,10 +1,15 @@
 import { nanoid } from "nanoid";
 import urlmodel from "../Models/Url.js";
+import isValidUrl from "../services/urlValidation.js";
 
 export async function generateShortUrl(req, res){
     try{
     const { originalurl } = req.body;
     if(!originalurl)  return res.status(400).sendmessage({message: "Long URL is required"});
+
+    if(!isValidUrl(originalurl)){
+        return res.status(400).sendmessage({message: "The URL is Not Valid"});
+    }
 
     const shortId = nanoid(10);
 
